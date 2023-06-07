@@ -14,7 +14,7 @@ class EventsController < ApplicationController
 
     respond_to do |format|
       format.html
-      format.json { render :json => @events.to_json}
+      format.json { render :json => ({events: @events, sport: @sport}).to_json}
     end
   end
 
@@ -30,9 +30,10 @@ class EventsController < ApplicationController
       @event = event.nil? ? [] : EventTransformation.event(event)
       @outcomes = outcomes.empty? ? [] : OutcomeTransformation.outcomes(outcomes)
     end
+    
     respond_to do |format|
       format.html
-      format.json { render :json => @outcomes.to_json}
+      format.json { render :json => ({event: @event, outcomes: @outcomes}).to_json}
     end
 
   end
