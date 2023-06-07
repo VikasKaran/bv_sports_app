@@ -1,5 +1,5 @@
 <% if @error_code || @event.empty? || @outcomes.empty? %>
-<%= render '/error' %>
+<%= render '/common/error' %>
 <%else%>
 <div class="d-flex align-items-center justify-content-center">
   <h3> Outcomes Listing for <%= @event[:title] %></h3>
