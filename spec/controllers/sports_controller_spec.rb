@@ -37,6 +37,33 @@ RSpec.describe 'SportsController', type: :request do
         ])
       end
     end
-    
+
+    context 'when request causes some error' do 
+      let(:error_response) do 
+        {
+          error: {
+            code: 500,
+            message: 'Internal Server Error.'
+          }
+        }
+      end
+
+      before do
+        allow_any_instance_of(ApiClients::SportsEventsClient).to receive(:sports_data).and_return(error_response)
+      end
+
+      it 'renders the error template' do 
+        get '/sports'
+        expect(response).to render_template('common/_error')        
+      end
+
+      it 'assigns the error code and message to @error_code and @error_message' do
+        get '/sports'
+        expect(assigns(:error_code)).to eq(500)
+        expect(assigns(:error_message)).to eq('Internal Server Error.')
+      end
+
+    end
+
   end
 end

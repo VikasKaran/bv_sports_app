@@ -2,7 +2,7 @@ class SportsController < ApplicationController
 
   def index
     sports_data = sports_events_client.sports_data
-    if @sports.is_a?(Hash) && sports_data.key?(:error)
+    if sports_data.is_a?(Hash) && sports_data.key?(:error)
       @error_code = sports_data[:error][:code]
       @error_message = sports_data[:error][:message]
     else 
