@@ -10,6 +10,6 @@ class EventTransformation
   end
 
   def self.events(obj)
-    obj.map(&method(:sport))
+    obj.map(&method(:event))
   end
 end

@@ -1,2 +1,25 @@
-<h1>Events#index</h1>
-<p>Find me in app/views/events/index.html.erb</p>
+<%logger.debug"vikaskkkkkkkkkkkkkkkkkkkkkkkkk222222222222222222#{@error_code}_____________#{@sport}_____________----#{@events}"%>
+<% if @error_code || @sport.empty? || @events.empty? %>
+<% render '/error' %>
+<%else%>
+<div class="d-flex align-items-center justify-content-center">
+  <h3> Events Listing for <%= @sport[:title] %></h3>
+</div>
+<div class="col-lg-12 mt-5 mb-5">
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Event</th>
+        <th>Event InPlay</th>
+        <th>Team A Score</th>
+        <th>Team B Score</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @events.each do |event| %>
+        	<%= render partial: '/events/event', locals: {event: event, sport_id: @sport[:id]} %>
+      <%end%>
+    </tbody>
+  </table>
+</div>
+<%end%>
