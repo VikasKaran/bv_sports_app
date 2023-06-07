@@ -7,7 +7,23 @@ module ApiClients
 	  end
 
 	  def sports_data
-	    JSON.parse(@sports_data.body)['sports']
+	    if @sports_data.nil?
+	      {
+	        error: {
+	          code: nil,
+	          message: 'Failed to retrieve sports data. Please try again later.'
+	        }
+	      }
+	    elsif @sports_data.success?
+	      JSON.parse(@sports_data.body)['sports']
+	    else
+	      {
+	        error: {
+	          code: @sports_data.code,
+	          message: @sports_data.message
+	        }
+	      }
+	    end
 	  end
 
 	  private
