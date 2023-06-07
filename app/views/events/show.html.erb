@@ -1,2 +1,23 @@
-<h1>Events#show</h1>
-<p>Find me in app/views/events/show.html.erb</p>
+<% if @error_code || @event.empty? || @outcomes.empty? %>
+<%= render '/error' %>
+<%else%>
+<div class="d-flex align-items-center justify-content-center">
+  <h3> Outcomes Listing for <%= @event[:title] %></h3>
+</div>
+<div class="col-lg-12 mt-5 mb-5">
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Outcome</th>
+        <th>PR</th>
+        <th>Key Dimension</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @outcomes.each do |outcome| %>
+        	<%= render partial: '/events/outcome', locals: {outcome: outcome} %>
+      <%end%>
+    </tbody>
+  </table>
+</div>
+<%end%>
