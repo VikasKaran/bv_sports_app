@@ -1,2 +1,6 @@
-<h1>Sports#index</h1>
-<p>Find me in app/views/sports/index.html.erb</p>
+<h1>All Sports</h1>
+<ul>
+  <% @sports.each do |sport| %>
+    <li><%= link_to sport['desc'], sports_events_path(sport['id']) %></li>
+  <% end %>
+</ul>
