@@ -1,6 +1,24 @@
-<h1>All Sports</h1>
-<ul>
-  <% @sports.each do |sport| %>
-    <li><%= link_to sport['desc'], sports_events_path(sport['id']) %></li>
-  <% end %>
-</ul>
+<div class="d-flex align-items-center justify-content-center">
+  <h3> Sports Listing</h3>
+</div>
+<% if @error_code || @sports.empty?%>
+<% render '/error' %>
+<%else%>
+<div class="col-lg-12 mt-5 mb-5">
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Sports Title</th>
+        <th>InPlay Events</th>
+        <th>Upcoming Events</th>
+        <th>Competitions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @sports.each do |sport| %>
+        	<%= render partial: '/sports/sport', locals: {sport: sport} %>
+      <%end%>
+    </tbody>
+  </table>
+</div>
+<%end%>

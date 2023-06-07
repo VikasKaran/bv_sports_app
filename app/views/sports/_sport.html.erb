@@ -1,0 +1,6 @@
+<tr>
+          <td><%= link_to sport[:title], sport_events_path(sport[:id]), class: "link-primary" %></td>
+          <td><%= sport[:hasInplayEvents] %></td>
+          <td><%= sport[:hasUpcomingEvents] %></td>
+          <td><%= sport[:comp_size]%></td>
+</tr>
