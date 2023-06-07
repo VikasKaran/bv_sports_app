@@ -1,6 +1,5 @@
-<%logger.debug"vikaskkkkkkkkkkkkkkkkkkkkkkkkk222222222222222222#{@error_code}_____________#{@sport}_____________----#{@events}"%>
 <% if @error_code || @sport.empty? || @events.empty? %>
-<% render '/error' %>
+<%= render '/error' %>
 <%else%>
 <div class="d-flex align-items-center justify-content-center">
   <h3> Events Listing for <%= @sport[:title] %></h3>

@@ -8,7 +8,6 @@ class EventsController < ApplicationController
       @error_message = sports_events_data[:error][:message]
     else
       sport, events = Events::EventsService.get_events(sports_data: sports_events_data, sport_id: params[:sport_id].to_i)
-      logger.debug"11111111111111111#{sport}_________________-#{events}"
       @sport = sport.nil? ? [] : SportTransformation.sport(sport)
       @events = events.empty? ? [] : EventTransformation.events(events)
     end
