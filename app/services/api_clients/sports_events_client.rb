@@ -10,7 +10,7 @@ module ApiClients
 	    if @sports_data.nil?
 	      {
 	        error: {
-	          code: nil,
+	          code: 500,
 	          message: 'Failed to retrieve sports data. Please try again later.'
 	        }
 	      }
