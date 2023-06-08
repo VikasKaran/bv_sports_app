@@ -1,7 +1,7 @@
 class OutcomeTransformation
   def self.outcome(obj)
     {
-      id: obj['id'],
+      id: obj['oid'],
       title: obj['d'],
       pr: obj['pr'],
       keyDimension: obj['keyDimension']
