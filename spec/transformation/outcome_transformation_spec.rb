@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'OutcomeTransformation', type: :request do
+RSpec.describe 'OutcomeTransformation' do
   describe '.outcome' do
     it 'transforms the input object into an outcome hash' do
       input = {

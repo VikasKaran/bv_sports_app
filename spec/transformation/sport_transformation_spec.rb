@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'SportTransformation', type: :request do 
+RSpec.describe 'SportTransformation' do 
 
 	describe '.sport' do
 		it 'transforms the input obj to a sport hash' do

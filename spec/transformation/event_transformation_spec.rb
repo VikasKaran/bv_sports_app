@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'EventTransformation', type: :request do
+RSpec.describe 'EventTransformation' do
   describe '.event' do
     it 'transforms the input object into an event hash' do
       input = {
