@@ -74,4 +74,4 @@ group :test do
   gem "webdrivers"
 end
 
-gem "httparty", "~> 0.21.0"
+gem "httparty", "~> 0.24.0"
